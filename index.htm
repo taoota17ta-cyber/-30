@@ -1,0 +1,295 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hi, Have a Good Day</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+            overflow: hidden;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: white;
+
+            background:
+                radial-gradient(circle at 20% 20%, #173b70 0%, transparent 35%),
+                radial-gradient(circle at 80% 80%, #40166b 0%, transparent 35%),
+                linear-gradient(135deg, #050816, #0b1026, #160b2d);
+        }
+
+        /* Background Animation */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(2px);
+            opacity: 0.5;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .circle1 {
+            width: 250px;
+            height: 250px;
+            background: #00d9ff;
+            top: -80px;
+            left: -80px;
+        }
+
+        .circle2 {
+            width: 180px;
+            height: 180px;
+            background: #9d00ff;
+            bottom: -50px;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .circle3 {
+            width: 100px;
+            height: 100px;
+            background: #006eff;
+            top: 20%;
+            right: 15%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+            }
+
+            50% {
+                transform: translateY(-30px) translateX(20px);
+            }
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 2;
+
+            width: min(90%, 700px);
+            padding: 60px 40px;
+
+            text-align: center;
+
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+
+            border-radius: 25px;
+
+            backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, 0.4),
+                inset 0 0 30px rgba(255, 255, 255, 0.03);
+
+            animation: appear 1.2s ease forwards;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Name */
+        .name {
+            font-size: 18px;
+            color: #8eeaff;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .student-id {
+            font-size: 15px;
+            color: #b8c7e0;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
+        /* Main Text */
+        h1 {
+            font-size: clamp(45px, 8vw, 80px);
+            font-weight: 700;
+
+            background: linear-gradient(
+                90deg,
+                #00eaff,
+                #ffffff,
+                #b86cff,
+                #00eaff
+            );
+
+            background-size: 300%;
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            animation: gradient 5s linear infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0%;
+            }
+
+            100% {
+                background-position: 300%;
+            }
+        }
+
+        p {
+            margin-top: 15px;
+            font-size: 20px;
+            color: #cbd5e1;
+        }
+
+        /* Button */
+        button {
+            margin-top: 35px;
+
+            padding: 14px 40px;
+
+            font-size: 17px;
+            font-weight: bold;
+
+            color: white;
+
+            background: linear-gradient(
+                90deg,
+                #008cff,
+                #8b3dff
+            );
+
+            border: none;
+            border-radius: 50px;
+
+            cursor: pointer;
+
+            box-shadow: 0 8px 25px rgba(72, 100, 255, 0.4);
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-4px) scale(1.05);
+
+            box-shadow:
+                0 12px 35px rgba(72, 100, 255, 0.7);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        /* Message */
+        #message {
+            margin-top: 20px;
+            min-height: 25px;
+
+            color: #7dd3fc;
+
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+        #message.show {
+            opacity: 1;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+
+            .container {
+                padding: 45px 20px;
+            }
+
+            .name {
+                font-size: 14px;
+            }
+
+            .student-id {
+                font-size: 12px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            button {
+                padding: 13px 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Background Animation -->
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="circle circle3"></div>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <div class="name">
+            THANAPON NOPPASART
+        </div>
+
+        <div class="student-id">
+            2610711302011 · UTCC
+        </div>
+
+        <h1>Hi, Have a Good Day</h1>
+
+        <p>
+            Welcome to my first web project 🚀
+        </p>
+
+        <button onclick="showMessage()">
+            Click
+        </button>
+
+        <div id="message">
+            🎉 Have a wonderful day!
+        </div>
+
+    </div>
+
+    <script>
+        function showMessage() {
+
+            const message = document.getElementById("message");
+
+            message.classList.add("show");
+
+            setTimeout(() => {
+                message.classList.remove("show");
+            }, 3000);
+        }
+    </script>
+
+</body>
+</html>
+```
